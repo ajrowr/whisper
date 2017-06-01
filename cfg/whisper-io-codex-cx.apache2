@@ -1,0 +1,16 @@
+<VirtualHost *:80 *:443>
+ServerName whisper.io.codex.cx
+DocumentRoot /home/alan/projects/_/2017/Whisper/html
+ErrorLog /home/alan/projects/_/2017/Whisper/log/error.log
+CustomLog /home/alan/projects/_/2017/Whisper/log/access.log combined
+AddHandler cgi-script .pygi
+
+ScriptAlias /feed/ /home/alan/projects/_/2017/Whisper/code/cgi/showfeed.pygi/
+SetEnv FEEDS_ROOT /home/alan/projects/_/2017/Whisper/feeds
+
+SetEnv PYTHONPATH /home/alan/.virtualenvs/whisper/lib/python2.7/site-packages
+
+SSLEngine on
+SSLCertificateFile /home/alan/ssl/server.crt
+SSLCertificateKeyFile /home/alan/ssl/server.key
+</VirtualHost>
